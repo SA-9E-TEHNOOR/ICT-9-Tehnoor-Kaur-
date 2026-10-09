@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Personal Portfolio | Tehnoor Kaur</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+
+        /* ---------- GENERAL ---------- */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff8f8;
+            color: #2b1518;
+        }
+
+        /* ---------- NAVIGATION ---------- */
+
+        nav {
+            background-color: #ffffff;
+            border-bottom: 3px solid #a70f27;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-name {
+            color: #a70f27;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #6f0719;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #e21d3d;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at 20% 30%, #ffd9df 0%, transparent 25%),
+                radial-gradient(circle at 85% 65%, #f4b4bf 0%, transparent 22%),
+                #fff8f8;
+        }
+
+        .hero {
+            max-width: 850px;
+        }
+
+        .logo {
+            width: 320px;
+            max-width: 80%;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            color: #990f26;
+            font-size: 58px;
+            margin: 10px 0;
+            letter-spacing: -2px;
+        }
+
+        header .intro {
+            font-size: 20px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .highlight {
+            color: #b3122c;
+            font-weight: bold;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 28px;
+            background-color: #a70f27;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background-color: #790a1c;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- MAIN SECTIONS ---------- */
+
+        main {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            margin: 80px 0;
+        }
+
+        .section-title {
+            color: #a70f27;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 38px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        /* ---------- ABOUT ---------- */
+
+        .about-card {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+
+            background-color: white;
+            border: 2px solid #e7a8b2;
+            border-radius: 25px;
+
+            padding: 40px;
+
+            box-shadow:
+                8px 8px 0px #a70f27;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 4px solid #a70f27;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ---------- SHOWCASE ---------- */
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .showcase-card {
+            background-color: white;
+            border: 2px solid #a70f27;
+            padding: 25px;
+            border-radius: 18px;
+            min-height: 260px;
+        }
+
+        .showcase-card h3 {
+            color: #a70f27;
+            font-size: 22px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        dt {
+            color: #a70f27;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        dd {
+            margin: 5px 0 15px 0;
+            line-height: 1.5;
+        }
+
+        /* ---------- ON REPEAT ---------- */
+
+        .music-section {
+            background-color: #9f1027;
+            border-radius: 30px;
+            padding: 50px;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .music-image {
+            width: 330px;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+
+            border: 5px solid white;
+
+            box-shadow:
+                10px 10px 0 #52000e;
+        }
+
+        .music-text {
+            flex: 1;
+        }
+
+        .music-text h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .music-text p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ---------- REPOSITORY ---------- */
+
+        .repository-box {
+            background-color: #ffe8ec;
+            padding: 35px;
+            border-left: 8px solid #a70f27;
+            border-radius: 12px;
+        }
+
+        .repository-link {
+            display: inline-block;
+            margin-top: 15px;
+
+            background-color: #a70f27;
+            color: white;
+
+            padding: 12px 25px;
+
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        .repository-link:hover {
+            background-color: #740719;
+        }
+
+        /* ---------- CONTACT ---------- */
+
+        .contact-section {
+            background-color: white;
+            border: 3px solid #a70f27;
+            border-radius: 25px;
+            padding: 45px;
+
+            box-shadow:
+                10px 10px 0 #a70f27;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            color: #7d0b1e;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 13px;
+
+            border: 2px solid #e0a5af;
+            border-radius: 10px;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+
+            background-color: #fffafa;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #a70f27;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #a70f27;
+            color: white;
+
+            border: none;
+
+            padding: 15px;
+
+            border-radius: 25px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #740719;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            margin-top: 100px;
+
+            background-color: #810d20;
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            header h1 {
+                font-size: 42px;
+            }
+
+            .about-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 230px;
+                height: 300px;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .music-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .music-image {
+                width: 80%;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="nav-name">
+            TK ★
+        </div>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#showcase">Showcase</a>
+            <a href="#music">On Repeat</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="hero">
+
+            <!-- PERSONAL LOGO -->
+            <a href="index.html">
+                <img
+                    src="logo.png"
+                    alt="The Podcast Style Logo"
+                    class="logo"
+                >
+            </a>
+
+            <p style="color: #a70f27; font-weight: bold; letter-spacing: 4px;">
+                WELCOME TO MY WORLD ★
+            </p>
+
+            <!-- INLINE CSS ABOVE IS INCLUDED TO DEMONSTRATE INLINE CSS -->
+
+            <h1>Tehnoor Kaur</h1>
+
+            <p class="intro">
+                Tehnoor, a student passionate about
+                <span class="highlight">medicine</span>,
+                <span class="highlight">Y2K stuff</span>,
+                and
+                <span class="highlight">podcasting</span>.
+            </p>
+
+            <a href="#about" class="hero-button">
+                Get to Know Me ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <!-- ABOUT ME -->
+
+        <section id="about">
+
+            <p class="section-title">01 / About Me</p>
+
+            <div class="about-card">
+
+                <!-- PROFILE IMAGE -->
+
+                <img
+                    src="profile.png"
+                    alt="Profile picture of Tehnoor Kaur"
+                    class="profile-image"
+                >
+
+                <div class="about-text">
+
+                    <h2>Hi, I'm Tehnoor.</h2>
+
+                    <p>
+                        I'm a student with a strong interest in
+                        <span class="highlight">medicine</span>,
+                        creativity, Y2K culture, and podcasting.
+                    </p>
+
+                    <p>
+                        I enjoy exploring ideas that allow me to combine
+                        my academic interests with the things that
+                        inspire me personally.
+                    </p>
+
+                    <p>
+                        This portfolio is a little look into my
+                        <span class="highlight">projects, interests,
+                        goals, and personality.</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SHOWCASED PAGES / LISTS -->
+
+        <section id="showcase">
+
+            <p class="section-title">02 / Portfolio</p>
+
+            <h2>My Showcase</h2>
+
+            <div class="showcase-grid">
+
+
+                <!-- UNORDERED LIST -->
+
+                <div class="showcase-card">
+
+                    <h3>Things I Love ♡</h3>
+
+                    <ul>
+                        <li>Medicine and science</li>
+                        <li>Y2K fashion and design</li>
+                        <li>Podcasting</li>
+                        <li>Music</li>
+                        <li>Creative projects</li>
+                    </ul>
+
+                </div>
+
+
+                <!-- ORDERED LIST -->
+
+                <div class="showcase-card">
+
+                    <h3>My Goals ★</h3>
+
+                    <ol>
+                        <li>Continue improving academically</li>
+                        <li>Learn more about medicine</li>
+                        <li>Develop my communication skills</li>
+                        <li>Create meaningful projects</li>
+                        <li>Keep exploring my interests</li>
+                    </ol>
+
+                </div>
+
+
+                <!-- DESCRIPTION LIST -->
+
+                <div class="showcase-card">
+
+                    <h3>A Few Words About Me</h3>
+
+                    <dl>
+
+                        <dt>Medicine</dt>
+                        <dd>
+                            One of the fields that interests me the most
+                            and something I hope to explore further.
+                        </dd>
+
+                        <dt>Y2K</dt>
+                        <dd>
+                            A style and aesthetic that inspires my
+                            creativity and designs.
+                        </dd>
+
+                        <dt>Podcasting</dt>
+                        <dd>
+                            A creative way for me to communicate ideas,
+                            stories, and conversations.
+                        </dd>
+
+                    </dl>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ON REPEAT -->
+
+        <section id="music">
+
+            <div class="music-section">
+
+                <img
+                    src="on-repeat.png"
+                    alt="Tehnoor's On Repeat playlist"
+                    class="music-image"
+                >
+
+                <div class="music-text">
+
+                    <p
+                        style="
+                            text-transform: uppercase;
+                            letter-spacing: 4px;
+                            font-weight: bold;
+                        "
+                    >
+                        Currently Playing ♪
+                    </p>
+
+                    <h2>On Repeat</h2>
+
+                    <p>
+                        Music is another part of my personality.
+                        My playlists usually mix confident, dreamy,
+                        nostalgic, and late-night songs.
+                    </p>
+
+                    <p>
+                        Some songs currently on repeat include
+                        <strong>Moonstruck</strong>,
+                        <strong>Confident</strong>,
+                        <strong>God Is a Woman</strong>,
+                        <strong>TBH</strong>, and
+                        <strong>Die for You</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PREVIOUS REPOSITORIES -->
+
+        <section id="projects">
+
+            <p class="section-title">03 / Previous Work</p>
+
+            <h2>My Repositories</h2>
+
+            <div class="repository-box">
+
+                <p>
+                    Want to see more of my work?
+                    Visit my previous repositories and projects below.
+                </p>
+
+                <!-- HYPERLINK -->
+
+                <a
+                    href="YOUR-REPOSITORY-LINK-HERE"
+                    target="_blank"
+                    class="repository-link"
+                >
+                    Visit My Repository ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTACT ME -->
+
+        <section id="contact">
+
+            <p class="section-title">04 / Say Hello</p>
+
+            <div class="contact-section">
+
+                <h2>Contact Me ♡</h2>
+
+                <p>
+                    Have feedback, a question, or a shared interest?
+                    Leave me a message below.
+                </p>
+
+
+                <!-- FORM -->
+
+                <form>
+
+                    <!-- DIVISION TAG USED TO GROUP FORM SECTIONS -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            <span>Name</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            <span>Email</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="interest">
+                            <span>What are you interested in?</span>
+                        </label>
+
+                        <select
+                            id="interest"
+                            name="interest"
+                        >
+
+                            <option value="">
+                                Select an interest
+                            </option>
+
+                            <option value="medicine">
+                                Medicine
+                            </option>
+
+                            <option value="podcasting">
+                                Podcasting
+                            </option>
+
+                            <option value="y2k">
+                                Y2K
+                            </option>
+
+                            <option value="music">
+                                Music
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="feedback">
+                            <span>Feedback / Message</span>
+                        </label>
+
+                        <textarea
+                            id="feedback"
+                            name="feedback"
+                            rows="6"
+                            placeholder="Write your message here..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+                        Send Message ★
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            ★ Tehnoor Kaur's Personal Portfolio ★
+        </p>
+
+        <p>
+            Made with HTML, CSS & a little Y2K energy.
+        </p>
+
+        <p>
+            &copy; 2026 Tehnoor Kaur
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
